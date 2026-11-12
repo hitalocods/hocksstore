@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATELIER // Coleção 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header minimalista da loja com navegação limpa entre as coleções -->
+  <header class="store-header">
+    <div class="store-logo" id="storeLogo">ATELIER<span>ARCHIVE</span></div>
+    <nav class="store-nav">
+      <button type="button" class="store-nav__btn" id="tabStage1">Tênis</button>
+      <button type="button" class="store-nav__btn active" id="tabStage2">Camisas</button>
+      <button type="button" class="store-nav__btn disabled" title="Em breve">Perfumes</button>
+    </nav>
+    <div class="store-actions">
+      <button class="bag-btn" id="bagBtn">
+        <span>Sacola</span>
+        <span class="bag-count" id="bagCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       CARROSSEL 1: RODA DE ARRASTAR ATÉ A ÓRBITA (TÊNIS)
+       ===================================================================== -->
+  <main class="orbit-showcase hidden-stage" id="stage1Container">
+    <section class="orbit-stage-wrapper">
+      <div class="orbit-hint-bar">
+        <span class="drag-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8L22 12L18 16"/><path d="M6 8L2 12L6 16"/><line x1="2" y1="12" x2="22" y2="12"/>
+          </svg>
+          ARRASTE PARA GIRAR
+        </span>
+      </div>
+
+      <div class="orbit-viewport" id="orbitViewport">
+        <div class="orbit-bg-word" id="orbitBgWord">JORDAN</div>
+
+        <svg class="orbit-ring-svg" viewBox="0 0 900 420" aria-hidden="true">
+          <defs>
+            <linearGradient id="orbitGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#111111" stop-opacity="0.05" />
+              <stop offset="50%" stop-color="#111111" stop-opacity="0.24" />
+              <stop offset="100%" stop-color="#111111" stop-opacity="0.05" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="450" cy="235" rx="370" ry="115" fill="none" stroke="url(#orbitGrad)" stroke-width="1.5" stroke-dasharray="6 6" />
+          <ellipse cx="450" cy="235" rx="285" ry="78" fill="none" stroke="#111111" stroke-opacity="0.06" stroke-width="1" />
+        </svg>
+
+        <div class="hero-floor-shadow" id="heroFloorShadow"></div>
+        <div class="orbit-items-layer" id="orbitItemsLayer"></div>
+      </div>
+
+      <div class="orbit-footer-bar">
+        <button class="orbit-step-btn" id="prevOrbitBtn" aria-label="Produto anterior">←</button>
+        <div class="orbit-thumbs" id="orbitThumbs"></div>
+        <button class="orbit-step-btn" id="nextOrbitBtn" aria-label="Próximo produto">→</button>
+      </div>
+    </section>
+
+    <aside class="product-panel">
+      <div class="product-panel__inner">
+        <div class="product-meta-top">
+          <span class="product-series" id="productSeries">ARCHIVE EDITION // 01</span>
+          <span class="product-sku" id="productSku">SKU-AJ12-2026</span>
+        </div>
+
+        <h1 class="product-title" id="productTitle">AIR JORDAN 12 RETRO</h1>
+        <p class="product-colorway" id="productColorway">Crimson Red / White / Carbon Black</p>
+
+        <div class="product-price-row">
+          <span class="product-price" id="productPrice">R$ 1.299,00</span>
+          <span class="product-stock">Em estoque · Envio imediato</span>
+        </div>
+
+        <p class="product-desc" id="productDesc">
+          Silhueta icônica com amortecimento Zoom Air em toda a extensão, placa em fibra de carbono no mediopé e sobreposições inspiradas no sol nascente.
+        </p>
+
+        <div class="size-section">
+          <div class="size-section__header">
+            <span>SELECIONE O TAMANHO (BR)</span>
+            <button type="button" class="size-guide-link">Guia de medidas</button>
+          </div>
+          <div class="size-grid" id="sizeGrid">
+            <button class="size-pill" data-size="38">38</button>
+            <button class="size-pill" data-size="39">39</button>
+            <button class="size-pill active" data-size="40">40</button>
+            <button class="size-pill" data-size="41">41</button>
+            <button class="size-pill" data-size="42">42</button>
+            <button class="size-pill" data-size="43">43</button>
+            <button class="size-pill" data-size="44">44</button>
+            <button class="size-pill" data-size="45">45</button>
+          </div>
+        </div>
+
+        <button class="add-to-bag-btn" id="addToBagBtn">
+          <span>Adicionar à sacola</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- =====================================================================
+       CARROSSEL 2: TRILHO SVG CURVO COM DESLIZE CENTRALIZADO (CAMISAS)
+       ===================================================================== -->
+  <main class="rail-showcase" id="stage2Container">
+    <div class="rail-header">
+      <div class="rail-header__eyebrow">NEW COLLECTION // AUTUMN-WINTER 2026</div>
+      <h1 class="rail-header__title">ARCHIVE GARMENTS</h1>
+    </div>
+
+    <section class="rail-stage" id="railStage">
+      <button class="rail-nav-arrow rail-nav-arrow--prev" id="railPrevBtn" aria-label="Camisa anterior">
+        ←
+      </button>
+      <button class="rail-nav-arrow rail-nav-arrow--next" id="railNextBtn" aria-label="Próxima camisa">
+        →
+      </button>
+
+      <div class="rail-spotlight-glow" id="railSpotlightGlow"></div>
+
+      <svg class="rail-svg" id="railSvg" viewBox="0 0 1400 240" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="steelRailGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#8a8984" stop-opacity="0.25" />
+            <stop offset="15%" stop-color="#3a3937" stop-opacity="0.85" />
+            <stop offset="50%" stop-color="#141413" stop-opacity="1" />
+            <stop offset="85%" stop-color="#3a3937" stop-opacity="0.85" />
+            <stop offset="100%" stop-color="#8a8984" stop-opacity="0.25" />
+          </linearGradient>
+          <linearGradient id="railHighlightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+            <stop offset="50%" stop-color="#ffffff" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+
+        <line x1="210" y1="0" x2="210" y2="95" stroke="#181818" stroke-opacity="0.16" stroke-width="1.5" />
+        <line x1="1190" y1="0" x2="1190" y2="95" stroke="#181818" stroke-opacity="0.16" stroke-width="1.5" />
+        <line x1="700" y1="0" x2="700" y2="148" stroke="#181818" stroke-opacity="0.10" stroke-width="1" stroke-dasharray="4 4" />
+
+        <path d="M 30,54 Q 700,242 1370,54" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="9" />
+        <path id="curvedRailPath" d="M 30,44 Q 700,232 1370,44" fill="none" stroke="url(#steelRailGrad)" stroke-width="5.5" stroke-linecap="round" />
+        <path d="M 30,42.5 Q 700,230.5 1370,42.5" fill="none" stroke="url(#railHighlightGrad)" stroke-width="1.5" stroke-linecap="round" />
+
+        <g id="railHooksGroup"></g>
+      </svg>
+
+      <div class="rail-garments-layer" id="railGarmentsLayer"></div>
+    </section>
+
+    <!-- Painel limpo apenas com detalhes e compra da camisa em foco -->
+    <section class="rail-bottom-bar">
+      <div class="rail-product-dock">
+        <div class="rail-product-dock__info">
+          <div class="rail-meta-line">
+            <span class="rail-badge" id="railSeries">LOOK 04 // ARCHIVE</span>
+            <span class="rail-fabric" id="railFabric">100% Algodão Egípcio 340g</span>
+          </div>
+          <h2 class="rail-product-title" id="railTitle">FOREST EMERALD WORK SHIRT</h2>
+          <p class="rail-product-desc" id="railDesc">
+            Construção estruturada de alfaiataria utilitária com tingimento reativo em verde esmeralda profundo e botões escuros.
+          </p>
+        </div>
+
+        <div class="rail-product-dock__actions">
+          <div class="rail-price-box">
+            <span class="rail-price-label">PREÇO</span>
+            <span class="rail-price-value" id="railPrice">R$ 689,00</span>
+          </div>
+
+          <div class="rail-sizes" id="railSizes">
+            <button class="rail-size-btn" data-size="P">P</button>
+            <button class="rail-size-btn active" data-size="M">M</button>
+            <button class="rail-size-btn" data-size="G">G</button>
+            <button class="rail-size-btn" data-size="GG">GG</button>
+          </div>
+
+          <button class="rail-buy-btn" id="railBuyBtn">
+            <span>Adicionar à sacola</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
